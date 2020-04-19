@@ -22,7 +22,7 @@ import java.util.UUID;
 public class FileUploadController {
 
     @PostMapping("/fileUpload")
-    public String fileUpload(@RequestParam(value = "file") MultipartFile file, Model model, HttpServletRequest request) {
+    public String fileUpload(/*@RequestParam(value = "file")*/ MultipartFile file, Model model, HttpServletRequest request) {
 
         if (file.isEmpty()) {
             System.out.println("文件为空");
