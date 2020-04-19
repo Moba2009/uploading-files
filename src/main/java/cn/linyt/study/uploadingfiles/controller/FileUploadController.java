@@ -35,7 +35,6 @@ public class FileUploadController {
         // 是否接收到文件
         if (file.isEmpty()) {
             log.info("### file is null ###");
-            model.addAttribute("whether", false);
             model.addAttribute("message", "未选择任何文件");
             return "uploadForm";
         }
@@ -48,7 +47,6 @@ public class FileUploadController {
         if (!CONTENT_TYPES.contains(contentType)){
             // 文件类型不合法，直接返回null
             log.info("### Type not supported：{} ###", suffixName);
-            model.addAttribute("whether", false);
             model.addAttribute("message", "文件类型不合法");
             return "uploadForm";
         }
@@ -58,7 +56,6 @@ public class FileUploadController {
             bufferedImage = ImageIO.read(file.getInputStream());
             if (null == bufferedImage){
                 log.info("### Content not supported：{} ###", suffixName);
-                model.addAttribute("whether", false);
                 model.addAttribute("message", "文件内容不合法");
                 return "uploadForm";
             }
@@ -82,7 +79,6 @@ public class FileUploadController {
         // 访问文件的路径
         String originalFileName = "http://111.230.223.21/upload/img/" + fileName;
         model.addAttribute("originalFileName", originalFileName);
-        model.addAttribute("whether", true);
         model.addAttribute("message", "文件上传成功");
         return "uploadForm";
     }
