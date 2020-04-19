@@ -27,7 +27,7 @@ import java.util.UUID;
 @Controller
 public class FileUploadController {
 
-    private static final List<String> CONTENT_TYPES = Arrays.asList("jpg", "jpeg", "png");
+    private static final List<String> CONTENT_TYPES = Arrays.asList("image/jpg", "image/jpeg", "image/png");
 
     @PostMapping("/fileUpload")
     public String fileUpload(@RequestParam(value = "file") MultipartFile file, Model model, HttpServletRequest request) {
@@ -44,6 +44,7 @@ public class FileUploadController {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         // 校验文件的类型
         String contentType = file.getContentType();
+        log.info("### file type: {} ###", contentType);
         if (!CONTENT_TYPES.contains(contentType)){
             // 文件类型不合法，直接返回null
             log.info("### Type not supported：{} ###", suffixName);
