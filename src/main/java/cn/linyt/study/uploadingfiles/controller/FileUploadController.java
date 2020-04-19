@@ -27,7 +27,7 @@ import java.util.UUID;
 @Controller
 public class FileUploadController {
 
-    private static final List<String> CONTENT_TYPES = Arrays.asList("image/jpg", "image/jpeg", "image/png");
+    private static final List<String> CONTENT_TYPES = Arrays.asList("jpg", "jpeg", "png");
 
     @PostMapping("/fileUpload")
     public String fileUpload(@RequestParam(value = "file") MultipartFile file, Model model, HttpServletRequest request) {
