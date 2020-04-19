@@ -44,7 +44,7 @@ public class FileUploadController {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         // 校验文件的类型
         String contentType = file.getContentType();
-        log.info("### file type: {} ###", contentType);
+        log.info("### upload file type: {} ###", contentType);
         if (!CONTENT_TYPES.contains(contentType)){
             // 文件类型不合法，直接返回null
             log.info("### Type not supported：{} ###", suffixName);
